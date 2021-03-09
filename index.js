@@ -14,7 +14,7 @@ client.once('ready', () => {
 
 client.on('message', async message => {
   if (!message.guild) return;
-  if (message.content === `${prefix}big`) {
+  if (message.content === `${prefix}hits`) {
   if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
       const dispatcher = connection.play('greatesthits.mp3');
