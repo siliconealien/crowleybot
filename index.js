@@ -1,4 +1,3 @@
-require('dotenv').config();
 const token = process.env.TOKEN;
 const Discord = require('discord.js');
 const { Client, MessageEmbed } = require('discord.js');
