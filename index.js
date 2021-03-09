@@ -1,3 +1,5 @@
+require('dotenv').config();
+const token = process.env.TOKEN;
 const Discord = require('discord.js');
 const { Client, MessageEmbed } = require('discord.js');
 const { prefix } = require("./config.json");
@@ -28,4 +30,4 @@ client.on('message', async message => {
   }
 });
 
-client.login('ODE2MTYwNzg4MTkyNTU5MTM1.YD269w.XU2S1TMuRT6bcBWZ-aq7I_Hql_c');
+client.login(process.env.TOKEN);
