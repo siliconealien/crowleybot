@@ -13,6 +13,14 @@ client.once('ready', () => {
 });
 
 client.on('message', message => {
+	if (message.content === `${prefix}guilds`) {
+		client.guilds.cache.forEach(guild => {
+		  console.log(`${guild.name} | ${guild.id}`);
+		})
+	}
+});
+
+client.on('message', message => {
 	if (message.content === `${prefix}songlist`) {
 		message.channel.send('`aj;br` - **Bohemian Rhapsody**\n`aj;dsmn` - **Don\'t Stop Me Now**\n`aj;goflb` - **Good Old-Fashioned Lover Boy**\n`aj;kq` - **Killer Queen**\n`aj;stl` - **Somebody to Love**\n`aj;ymbf` - **You\'re My Best Friend**');
 	}
