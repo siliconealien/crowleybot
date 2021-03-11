@@ -22,7 +22,7 @@ client.on('message', message => {
 
 client.on('message', message => {
 	if (message.content === `${prefix}songlist`) {
-		message.channel.send('`aj;br` - **Bohemian Rhapsody**\n`aj;dsmn` - **Don\'t Stop Me Now**\n`aj;goflb` - **Good Old-Fashioned Lover Boy**\n`aj;kq` - **Killer Queen**\n`aj;stl` - **Somebody to Love**\n`aj;ymbf` - **You\'re My Best Friend**');
+		message.channel.send('`aj;br` - **Bohemian Rhapsody**\n`aj;dsmn` - **Don\'t Stop Me Now**\n`aj;goflb` - **Good Old-Fashioned Lover Boy**\n`aj;kq` - **Killer Queen**\n`aj;stl` - **Somebody to Love**\n`aj;up` - **Under Pressure**\n`aj;watc` - **We Are the Champions**\n`aj;ymbf` - **You\'re My Best Friend**');
 	}
 });
 
@@ -84,6 +84,32 @@ client.on('message', async message => {
   if (message.member.voice.channel) {
       const connection = await message.member.voice.channel.join();
       const dispatcher = connection.play('mp3/somebodytolove.mp3');
+      dispatcher.on('finish', () => message.member.voice.channel.leave());
+    } else {
+      message.reply('you need to join a voice channel first!');
+    }
+  }
+});
+
+client.on('message', async message => {
+  if (!message.guild) return;
+  if (message.content === `${prefix}up`) {
+  if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+      const dispatcher = connection.play('mp3/underpressure.mp3');
+      dispatcher.on('finish', () => message.member.voice.channel.leave());
+    } else {
+      message.reply('you need to join a voice channel first!');
+    }
+  }
+});
+
+client.on('message', async message => {
+  if (!message.guild) return;
+  if (message.content === `${prefix}watc`) {
+  if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+      const dispatcher = connection.play('mp3/wearethechampions.mp3');
       dispatcher.on('finish', () => message.member.voice.channel.leave());
     } else {
       message.reply('you need to join a voice channel first!');
